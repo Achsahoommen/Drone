@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spinach Health Detector - AI Precision Spraying</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            min-height: 100vh;
+        }
+        .header {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+            border-bottom: 1px solid #334155;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 1.8em;
+            color: #08e025;
+            margin-bottom: 4px;
+        }
+        .header p { color: #94a3b8; font-size: 0.95em; }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        .upload-zone {
+            border: 2px dashed #475569;
+            border-radius: 16px;
+            padding: 50px 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: #1e293b;
+            margin-bottom: 30px;
+        }
+        .upload-zone:hover, .upload-zone.dragover {
+            border-color: #22c55e;
+            background: #1a2e1a;
+        }
+        .upload-zone .icon { font-size: 3em; margin-bottom: 15px; }
+        .upload-zone h3 { color: #e2e8f0; margin-bottom: 8px; }
+        .upload-zone p { color: #94a3b8; font-size: 0.9em; }
+        .btn-row {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 12px 28px;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.95em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-primary { background: #22c55e; color: #0f172a; }
+        .btn-primary:hover { background: #16a34a; }
+        .btn-camera { background: #3b82f6; color: white; }
+        .btn-camera:hover { background: #2563eb; }
+        .btn-reset { background: #475569; color: white; }
+        .btn-reset:hover { background: #64748b; }
+        .preview {
+            display: none;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .preview img {
+            max-width: 100%;
+            max-height: 400px;
+            border-radius: 12px;
+            border: 2px solid #334155;
+        }
+        .camera-feed {
+            display: none;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .camera-feed video {
+            max-width: 100%;
+            max-height: 400px;
+            border-radius: 12px;
+            border: 2px solid #334155;
+            background: #000;
+            width: 100%;
+        }
+        .camera-feed canvas { display: none; }
+        .capture-preview img {
+            max-width: 100%;
+            max-height: 400px;
+            border-radius: 12px;
+            border: 2px solid #22c55e;
+            width: 100%;
+        }
+        .camera-status {
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            background: #0f172a;
+            font-size: 0.85em;
+            color: #94a3b8;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #334155;
+            border-top: 4px solid #22c55e;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .results {
+            display: none;
+            background: #1e293b;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #334155;
+        }
+        .result-header {
+            padding: 24px 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .result-header .status-badge {
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1em;
+            color: white;
+        }
+        .result-header .confidence {
+            font-size: 2em;
+            font-weight: 700;
+        }
+        .result-header .label { color: #94a3b8; font-size: 0.85em; }
+        .prob-bars { padding: 0 30px 24px; }
+        .prob-bar-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            gap: 12px;
+        }
+        .prob-bar-row .name {
+            width: 90px;
+            font-size: 0.85em;
+            color: #94a3b8;
+            text-transform: capitalize;
+        }
+        .prob-bar-row .bar-bg {
+            flex: 1;
+            height: 24px;
+            background: #0f172a;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .prob-bar-row .bar-fill {
+            height: 100%;
+            border-radius: 6px;
+            transition: width 0.8s ease;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            font-size: 0.8em;
+            font-weight: 600;
+            color: white;
+            min-width: 40px;
+        }
+        .spray-info {
+            background: #0f172a;
+            padding: 24px 30px;
+            border-top: 1px solid #334155;
+        }
+        .spray-info h3 { color: #e2e8f0; margin-bottom: 12px; }
+        .spray-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+        }
+        .spray-card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+        }
+        .spray-card .value {
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .spray-card .label {
+            font-size: 0.8em;
+            color: #94a3b8;
+        }
+        .recommendation {
+            margin-top: 16px;
+            padding: 16px;
+            background: #1e293b;
+            border-radius: 10px;
+            border-left: 4px solid #22c55e;
+        }
+        .recommendation p { color: #cbd5e1; font-size: 0.9em; }
+        .error-msg {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background: #1e293b;
+            border-radius: 12px;
+            border: 1px solid #ef4444;
+            color: #fca5a5;
+        }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.3em; }
+            .result-header { flex-direction: column; text-align: center; }
+            .spray-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Spinach Health Detector</h1>
+        <p>AI-Based Autonomous Drone for Precision Pesticide Spraying</p>
+    </div>
+
+    <div class="container">
+        <div class="upload-zone" id="uploadZone">
+            <div class="icon">&#127807;</div>
+            <h3>Upload a Spinach Leaf Image</h3>
+            <p>Drag & drop or click to select</p>
+            <input type="file" id="fileInput" accept="image/*" hidden>
+            <div class="btn-row">
+                <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">
+                    Choose Image
+                </button>
+                <button class="btn btn-camera" id="cameraBtn">
+                    Use Camera
+                </button>
+            </div>
+        </div>
+
+        <div class="preview" id="preview">
+            <img id="previewImg" src="" alt="Preview">
+            <div class="btn-row" style="margin-top:15px">
+                <button class="btn btn-primary" id="analyzeBtn">Analyze Image</button>
+                <button class="btn btn-reset" id="resetBtn">Reset</button>
+            </div>
+        </div>
+
+        <div class="camera-feed" id="cameraFeed">
+            <video id="video" autoplay playsinline muted></video>
+            <canvas id="canvas" hidden></canvas>
+            <div class="capture-preview" id="capturePreview" hidden>
+                <img id="capturedImg" alt="Captured">
+            </div>
+            <div class="btn-row" style="margin-top:15px">
+                <button class="btn btn-primary" id="captureBtn">Capture Photo</button>
+                <button class="btn btn-camera" id="recaptureBtn" hidden>Retake</button>
+                <button class="btn btn-primary" id="analyzeCaptureBtn" hidden>Analyze Photo</button>
+                <button class="btn btn-reset" id="stopCameraBtn">Stop Camera</button>
+            </div>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Analyzing leaf image...</p>
+        </div>
+
+        <div class="error-msg" id="error">
+            <p id="errorText"></p>
+        </div>
+
+        <div class="results" id="results">
+            <div class="result-header" id="resultHeader">
+                <div>
+                    <div class="label">Diagnosis</div>
+                    <div class="status-badge" id="statusBadge"></div>
+                </div>
+                <div style="text-align:right">
+                    <div class="label">Confidence</div>
+                    <div class="confidence" id="confidence"></div>
+                </div>
+            </div>
+            <div class="prob-bars" id="probBars"></div>
+            <div class="spray-info">
+                <h3>Drone Spray Command</h3>
+                <div class="spray-grid" id="sprayGrid"></div>
+                <div class="recommendation" id="recommendation">
+                    <p id="recText"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const uploadZone = document.getElementById('uploadZone');
+        const fileInput = document.getElementById('fileInput');
+        const preview = document.getElementById('preview');
+        const previewImg = document.getElementById('previewImg');
+        const cameraFeed = document.getElementById('cameraFeed');
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+        const loading = document.getElementById('loading');
+        const results = document.getElementById('results');
+        const error = document.getElementById('error');
+        const cameraBtn = document.getElementById('cameraBtn');
+
+        let selectedFile = null;
+        let cameraStream = null;
+
+        const barColors = {
+            healthy: '#22c55e',
+            mild: '#f59e0b',
+            moderate: '#f97316',
+            severe: '#ef4444'
+        };
+
+        uploadZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadZone.classList.add('dragover');
+        });
+        uploadZone.addEventListener('dragleave', () => {
+            uploadZone.classList.remove('dragover');
+        });
+        uploadZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadZone.classList.remove('dragover');
+            if (e.dataTransfer.files.length) {
+                handleFile(e.dataTransfer.files[0]);
+            }
+        });
+        uploadZone.addEventListener('click', (e) => {
+            if (e.target.tagName !== 'BUTTON') fileInput.click();
+        });
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length) handleFile(fileInput.files[0]);
+        });
+
+        function handleFile(file) {
+            if (!file.type.startsWith('image/')) return;
+            selectedFile = file;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                previewImg.src = e.target.result;
+                hideAll();
+                preview.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
+
+        document.getElementById('analyzeBtn').addEventListener('click', () => {
+            if (!selectedFile) return;
+            const formData = new FormData();
+            formData.append('image', selectedFile);
+            analyzeImage('/predict', formData);
+        });
+
+        const captureBtn = document.getElementById('captureBtn');
+        const recaptureBtn = document.getElementById('recaptureBtn');
+        const analyzeCaptureBtn = document.getElementById('analyzeCaptureBtn');
+        const capturedImg = document.getElementById('capturedImg');
+        const capturePreview = document.getElementById('capturePreview');
+
+        cameraBtn.addEventListener('click', async () => {
+            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                showError('Camera not supported in this browser. Please upload an image instead.');
+                return;
+            }
+            hideAll();
+            cameraFeed.style.display = 'block';
+            video.style.display = 'block';
+            capturePreview.style.display = 'none';
+            captureBtn.style.display = 'inline-flex';
+            recaptureBtn.style.display = 'none';
+            analyzeCaptureBtn.style.display = 'none';
+
+            if (cameraStream) {
+                cameraStream.getTracks().forEach(t => t.stop());
+                cameraStream = null;
+            }
+
+            let stream = null;
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({
+                    video: { width: { ideal: 1280 }, height: { ideal: 720 } },
+                    audio: false
+                });
+            } catch (e1) {
+                try {
+                    stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                } catch (e2) {
+                    cameraFeed.style.display = 'none';
+                    showError('Could not access camera. Please upload an image instead.');
+                    return;
+                }
+            }
+            cameraStream = stream;
+            video.srcObject = stream;
+            await video.play().catch(() => {});
+        });
+
+        captureBtn.addEventListener('click', () => {
+            if (!video.videoWidth || !video.videoHeight) {
+                showError('Camera is still starting. Please wait 1-2 seconds and try again.');
+                return;
+            }
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            canvas.getContext('2d').drawImage(video, 0, 0);
+            const dataUrl = canvas.toDataURL('image/jpeg', 0.92);
+            capturedImg.src = dataUrl;
+
+            video.style.display = 'none';
+            capturePreview.style.display = 'block';
+            captureBtn.style.display = 'none';
+            recaptureBtn.style.display = 'inline-flex';
+            analyzeCaptureBtn.style.display = 'inline-flex';
+            cameraStream.getTracks().forEach(t => t.stop());
+            cameraStream = null;
+        });
+
+        recaptureBtn.addEventListener('click', async () => {
+            if (cameraStream) {
+                cameraStream.getTracks().forEach(t => t.stop());
+                cameraStream = null;
+            }
+            capturePreview.style.display = 'none';
+            video.style.display = 'block';
+            captureBtn.style.display = 'inline-flex';
+            recaptureBtn.style.display = 'none';
+            analyzeCaptureBtn.style.display = 'none';
+            try {
+                cameraStream = await navigator.mediaDevices.getUserMedia({ video: true });
+                video.srcObject = cameraStream;
+                await video.play().catch(() => {});
+            } catch (err) {
+                showError('Could not restart camera. Please try again.');
+            }
+        });
+
+        analyzeCaptureBtn.addEventListener('click', () => {
+            const dataUrl = capturedImg.src;
+            hideAll();
+            loading.style.display = 'block';
+            fetch('/predict_base64', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ image: dataUrl })
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.error) { showError(data.error); return; }
+                displayResults(data);
+            })
+            .catch(err => showError('Failed to analyze. Please try again.'));
+        });
+
+        document.getElementById('stopCameraBtn').addEventListener('click', stopCamera);
+
+        function stopCamera() {
+            if (cameraStream) {
+                cameraStream.getTracks().forEach(t => t.stop());
+                cameraStream = null;
+            }
+            video.srcObject = null;
+            hideAll();
+            uploadZone.style.display = 'block';
+            cameraBtn.style.display = 'inline-flex';
+        }
+
+        document.getElementById('resetBtn').addEventListener('click', () => {
+            selectedFile = null;
+            fileInput.value = '';
+            hideAll();
+            uploadZone.style.display = 'block';
+            cameraBtn.style.display = 'inline-flex';
+        });
+
+        function hideAll() {
+            uploadZone.style.display = 'none';
+            preview.style.display = 'none';
+            cameraFeed.style.display = 'none';
+            loading.style.display = 'none';
+            results.style.display = 'none';
+            error.style.display = 'none';
+        }
+
+        function showError(msg) {
+            if (cameraStream) {
+                cameraStream.getTracks().forEach(t => t.stop());
+                cameraStream = null;
+                video.srcObject = null;
+            }
+            hideAll();
+            error.style.display = 'block';
+            document.getElementById('errorText').textContent = msg;
+            uploadZone.style.display = 'block';
+            cameraBtn.style.display = 'inline-flex';
+        }
+
+        async function analyzeImage(url, formData) {
+            loading.style.display = 'block';
+            try {
+                const resp = await fetch(url, { method: 'POST', body: formData });
+                const data = await resp.json();
+                if (data.error) {
+                    showError(data.error);
+                    return;
+                }
+                displayResults(data);
+            } catch (err) {
+                showError('Failed to analyze image. Please try again.');
+            }
+        }
+
+        function displayResults(data) {
+            loading.style.display = 'none';
+            results.style.display = 'block';
+
+            const spray = data.spray;
+            document.getElementById('resultHeader').style.background = spray.color + '22';
+            document.getElementById('statusBadge').textContent = spray.status;
+            document.getElementById('statusBadge').style.background = spray.color;
+            document.getElementById('confidence').textContent = data.confidence + '%';
+            document.getElementById('confidence').style.color = spray.color;
+
+            const probBars = document.getElementById('probBars');
+            probBars.innerHTML = '';
+            for (const [cls, prob] of Object.entries(data.probabilities)) {
+                const row = document.createElement('div');
+                row.className = 'prob-bar-row';
+                row.innerHTML = `
+                    <div class="name">${cls}</div>
+                    <div class="bar-bg">
+                        <div class="bar-fill" style="width:0%; background:${barColors[cls]}">${prob}%</div>
+                    </div>
+                `;
+                probBars.appendChild(row);
+                setTimeout(() => {
+                    row.querySelector('.bar-fill').style.width = prob + '%';
+                }, 100);
+            }
+
+            const grid = document.getElementById('sprayGrid');
+            grid.innerHTML = `
+                <div class="spray-card">
+                    <div class="value" style="color:${spray.color}">${spray.action.split(' ')[0]}</div>
+                    <div class="label">Action</div>
+                </div>
+                <div class="spray-card">
+                    <div class="value">${spray.duration}</div>
+                    <div class="label">Spray Duration</div>
+                </div>
+                <div class="spray-card">
+                    <div class="value">${spray.flow_rate}</div>
+                    <div class="label">Flow Rate</div>
+                </div>
+                <div class="spray-card">
+                    <div class="value">${data.confidence}%</div>
+                    <div class="label">Confidence</div>
+                </div>
+            `;
+            document.getElementById('recText').textContent = spray.recommendation;
+
+            results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    </script>
+</body>
+</html>

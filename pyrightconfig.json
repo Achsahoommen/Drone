@@ -1,0 +1,15 @@
+{
+  "include": ["."],
+  "exclude": [
+    ".venv",
+    "**/__pycache__",
+    "**/*.pyc"
+  ],
+  "extraPaths": [
+    "src"
+  ],
+  "venvPath": ".",
+  "venv": ".venv",
+  "pythonVersion": "3.13",
+  "reportMissingImports": "warning"
+}

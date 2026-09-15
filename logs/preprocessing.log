@@ -1,0 +1,45 @@
+[2026-08-26 13:01:06] preprocessing - INFO -   train: 1400 images
+[2026-08-26 13:01:06] preprocessing - INFO -     healthy: 350
+[2026-08-26 13:01:06] preprocessing - INFO -     mild: 350
+[2026-08-26 13:01:06] preprocessing - INFO -     moderate: 350
+[2026-08-26 13:01:06] preprocessing - INFO -     severe: 350
+[2026-08-26 13:01:06] preprocessing - INFO -   val: 300 images
+[2026-08-26 13:01:06] preprocessing - INFO -     healthy: 75
+[2026-08-26 13:01:06] preprocessing - INFO -     mild: 75
+[2026-08-26 13:01:06] preprocessing - INFO -     moderate: 75
+[2026-08-26 13:01:06] preprocessing - INFO -     severe: 75
+[2026-08-26 13:01:06] preprocessing - INFO -   test: 300 images
+[2026-08-26 13:01:06] preprocessing - INFO -     healthy: 75
+[2026-08-26 13:01:06] preprocessing - INFO -     mild: 75
+[2026-08-26 13:01:06] preprocessing - INFO -     moderate: 75
+[2026-08-26 13:01:06] preprocessing - INFO -     severe: 75
+[2026-08-26 13:01:21] preprocessing - INFO - Loaded 1400 images: healthy=350, mild=350, moderate=350, severe=350
+[2026-08-26 13:01:21] preprocessing - INFO - Loaded 300 images: healthy=75, mild=75, moderate=75, severe=75
+[2026-08-26 13:01:21] preprocessing - INFO - Loaded 300 images: healthy=75, mild=75, moderate=75, severe=75
+[2026-08-26 15:05:20] preprocessing - INFO -   train: 2103 images
+[2026-08-26 15:05:20] preprocessing - INFO -     healthy: 979
+[2026-08-26 15:05:20] preprocessing - INFO -     mild: 885
+[2026-08-26 15:05:20] preprocessing - INFO -     moderate: 168
+[2026-08-26 15:05:20] preprocessing - INFO -     severe: 71
+[2026-08-26 15:05:20] preprocessing - INFO -   val: 449 images
+[2026-08-26 15:05:20] preprocessing - INFO -     healthy: 209
+[2026-08-26 15:05:20] preprocessing - INFO -     mild: 189
+[2026-08-26 15:05:20] preprocessing - INFO -     moderate: 36
+[2026-08-26 15:05:20] preprocessing - INFO -     severe: 15
+[2026-08-26 15:05:20] preprocessing - INFO -   test: 454 images
+[2026-08-26 15:05:20] preprocessing - INFO -     healthy: 211
+[2026-08-26 15:05:20] preprocessing - INFO -     mild: 191
+[2026-08-26 15:05:20] preprocessing - INFO -     moderate: 36
+[2026-08-26 15:05:20] preprocessing - INFO -     severe: 16
+[2026-08-26 15:05:27] preprocessing - INFO - Loaded 3503 images: healthy=1329, mild=1235, moderate=518, severe=421
+[2026-08-26 15:05:27] preprocessing - INFO - Loaded 749 images: healthy=284, mild=264, moderate=111, severe=90
+[2026-08-26 15:05:27] preprocessing - INFO - Loaded 754 images: healthy=286, mild=266, moderate=111, severe=91
+[2026-08-26 15:08:40] preprocessing - INFO - Loaded 3503 images: healthy=1329, mild=1235, moderate=518, severe=421
+[2026-08-26 15:08:40] preprocessing - INFO - Loaded 749 images: healthy=284, mild=264, moderate=111, severe=90
+[2026-08-26 15:08:40] preprocessing - INFO - Loaded 754 images: healthy=286, mild=266, moderate=111, severe=91
+[2026-08-26 17:23:30] preprocessing - INFO - Loaded 3503 images: healthy=1329, mild=1235, moderate=518, severe=421
+[2026-08-26 17:23:30] preprocessing - INFO - Loaded 749 images: healthy=284, mild=264, moderate=111, severe=90
+[2026-08-26 17:23:30] preprocessing - INFO - Loaded 754 images: healthy=286, mild=266, moderate=111, severe=91
+[2026-08-26 17:53:59] preprocessing - INFO - Loaded 3503 images: healthy=1329, mild=1235, moderate=518, severe=421
+[2026-08-26 17:53:59] preprocessing - INFO - Loaded 749 images: healthy=284, mild=264, moderate=111, severe=90
+[2026-08-26 17:53:59] preprocessing - INFO - Loaded 754 images: healthy=286, mild=266, moderate=111, severe=91

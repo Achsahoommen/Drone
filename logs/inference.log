@@ -1,0 +1,21 @@
+[2026-08-26 13:36:31] inference - INFO - Loaded checkpoint from epoch 1
+[2026-08-26 13:36:31] inference - INFO - Weights loaded from C:\Users\achsa\OneDrive\Documents\Default Project\checkpoints\best_model.pth
+[2026-08-26 13:38:12] inference - INFO - Loaded checkpoint from epoch 1
+[2026-08-26 13:38:12] inference - INFO - Weights loaded from C:\Users\achsa\OneDrive\Documents\Default Project\checkpoints\best_model.pth
+[2026-08-26 13:38:12] inference - INFO - Classifier loaded | Model: C:\Users\achsa\OneDrive\Documents\Default Project\checkpoints\best_model.pth | Device: cpu | Half: True
+[2026-08-26 13:38:23] inference - INFO - Warmup complete (3 runs)
+[2026-08-26 13:40:32] inference - INFO - Loaded checkpoint from epoch 1
+[2026-08-26 13:40:32] inference - INFO - Weights loaded from C:\Users\achsa\OneDrive\Documents\Default Project\checkpoints\best_model.pth
+[2026-08-26 13:40:32] inference - INFO - Classifier loaded | Model: C:\Users\achsa\OneDrive\Documents\Default Project\checkpoints\best_model.pth | Device: cpu | Half: True
+[2026-08-26 13:40:42] inference - INFO - Warmup complete (3 runs)
+[2026-08-26 13:41:44] inference - INFO - Loaded checkpoint from epoch 1
+[2026-08-26 13:41:44] inference - INFO - Weights loaded from C:\Users\achsa\OneDrive\Documents\Default Project\checkpoints\best_model.pth
+[2026-08-26 13:41:44] inference - INFO - Classifier loaded | Model: C:\Users\achsa\OneDrive\Documents\Default Project\checkpoints\best_model.pth | Device: cpu | Half: True
+[2026-08-26 13:41:50] inference - INFO - Warmup complete (3 runs)
+[2026-08-26 13:49:51] inference - INFO - Loaded checkpoint from epoch 1
+[2026-08-26 13:49:51] inference - INFO - Weights loaded from C:\Users\achsa\OneDrive\Documents\Default Project\checkpoints\best_model.pth
+[2026-08-26 13:49:51] inference - INFO - Classifier loaded | Model: C:\Users\achsa\OneDrive\Documents\Default Project\checkpoints\best_model.pth | Device: cpu | Half: True
+[2026-08-26 13:49:51] inference - INFO - Warmup complete (3 runs)
+[2026-09-09 14:09:17] inference - INFO - Loaded checkpoint from epoch 6
+[2026-09-09 14:09:17] inference - INFO - Weights loaded from checkpoints/best_model.pth
+[2026-09-09 14:09:17] inference - INFO - Classifier loaded | Model: checkpoints/best_model.pth | Device: cpu | Half: True

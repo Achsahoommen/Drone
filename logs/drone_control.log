@@ -1,0 +1,5 @@
+[2026-08-26 13:36:30] drone_control - INFO - DroneController initialized | Sim: True | Conn: udp:127.0.0.1:14550
+[2026-08-26 13:38:11] drone_control - INFO - DroneController initialized | Sim: True | Conn: udp:127.0.0.1:14550
+[2026-08-26 13:40:31] drone_control - INFO - DroneController initialized | Sim: True | Conn: udp:127.0.0.1:14550
+[2026-08-26 13:41:43] drone_control - INFO - DroneController initialized | Sim: True | Conn: udp:127.0.0.1:14550
+[2026-08-26 13:49:51] drone_control - INFO - DroneController initialized | Sim: True | Conn: udp:127.0.0.1:14550

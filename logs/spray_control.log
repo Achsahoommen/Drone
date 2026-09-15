@@ -1,0 +1,17 @@
+[2026-08-26 13:36:30] spray_control - INFO - SpraySimulator initialized (for testing without real drone)
+[2026-08-26 13:38:11] spray_control - INFO - SpraySimulator initialized (for testing without real drone)
+[2026-08-26 13:38:25] spray_control - INFO - SPRAY: high_spray | Duration: 10s | Flow: 2.0 LPM | Conf: 87.4%
+[2026-08-26 13:38:25] spray_control - INFO - >>> SIMULATING SPRAY: high_spray for 10.0s at 2.0 LPM <<<
+[2026-08-26 13:38:35] spray_control - INFO - >>> SPRAY COMPLETE <<<
+[2026-08-26 13:40:31] spray_control - INFO - SpraySimulator initialized (for testing without real drone)
+[2026-08-26 13:40:43] spray_control - INFO - SPRAY: high_spray | Duration: 10s | Flow: 2.0 LPM | Conf: 87.4%
+[2026-08-26 13:40:43] spray_control - INFO - >>> SIMULATING SPRAY: high_spray for 10.0s at 2.0 LPM <<<
+[2026-08-26 13:40:53] spray_control - INFO - >>> SPRAY COMPLETE <<<
+[2026-08-26 13:41:43] spray_control - INFO - SpraySimulator initialized (for testing without real drone)
+[2026-08-26 13:41:51] spray_control - INFO - SPRAY: high_spray | Duration: 10s | Flow: 2.0 LPM | Conf: 87.4%
+[2026-08-26 13:41:51] spray_control - INFO - >>> SIMULATING SPRAY: high_spray for 10.0s at 2.0 LPM <<<
+[2026-08-26 13:42:01] spray_control - INFO - >>> SPRAY COMPLETE <<<
+[2026-08-26 13:49:51] spray_control - INFO - SpraySimulator initialized (for testing without real drone)
+[2026-08-26 13:49:51] spray_control - INFO - SPRAY: high_spray | Duration: 10s | Flow: 2.0 LPM | Conf: 87.4%
+[2026-08-26 13:49:51] spray_control - INFO - >>> SIMULATING SPRAY: high_spray for 10.0s at 2.0 LPM <<<
+[2026-08-26 13:50:01] spray_control - INFO - >>> SPRAY COMPLETE <<<

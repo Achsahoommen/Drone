@@ -1,0 +1,127 @@
+[2026-08-26 13:01:21] trainer - INFO - Trainer initialized | Device: cpu | Params: 2.23M | Model: mobilenetv2
+[2026-08-26 13:01:21] trainer - INFO - ============================================================
+[2026-08-26 13:01:21] trainer - INFO - Starting training pipeline
+[2026-08-26 13:01:21] trainer - INFO - ============================================================
+[2026-08-26 13:04:13] trainer - INFO - Epoch 1/50 (172.5s) | LR: 9.99e-04 | Train Loss: 0.5714 Acc: 91.1% | Val Loss: 0.4136 Acc: 100.0%
+[2026-08-26 13:04:13] trainer - INFO - New best model saved: C:\Users\achsa\OneDrive\Documents\Default Project\checkpoints\best_model.pth (acc=100.00%)
+[2026-08-26 13:06:54] trainer - INFO - Epoch 2/50 (160.6s) | LR: 9.96e-04 | Train Loss: 0.4223 Acc: 97.5% | Val Loss: 0.3746 Acc: 100.0%
+[2026-08-26 13:09:28] trainer - INFO - Epoch 3/50 (153.4s) | LR: 9.91e-04 | Train Loss: 0.3995 Acc: 98.6% | Val Loss: 0.3719 Acc: 99.7%
+[2026-08-26 13:12:09] trainer - INFO - Epoch 4/50 (161.4s) | LR: 9.84e-04 | Train Loss: 0.3902 Acc: 98.8% | Val Loss: 0.4084 Acc: 100.0%
+[2026-08-26 13:14:41] trainer - INFO - Epoch 5/50 (151.9s) | LR: 9.76e-04 | Train Loss: 0.3852 Acc: 99.1% | Val Loss: 0.3723 Acc: 100.0%
+[2026-08-26 13:17:13] trainer - INFO - Epoch 6/50 (152.5s) | LR: 9.65e-04 | Train Loss: 0.3811 Acc: 99.0% | Val Loss: 0.3525 Acc: 100.0%
+[2026-08-26 13:19:44] trainer - INFO - Epoch 7/50 (150.3s) | LR: 9.52e-04 | Train Loss: 0.3683 Acc: 99.5% | Val Loss: 0.3768 Acc: 100.0%
+[2026-08-26 13:22:08] trainer - INFO - Epoch 8/50 (143.8s) | LR: 9.38e-04 | Train Loss: 0.3672 Acc: 99.6% | Val Loss: 0.3565 Acc: 100.0%
+[2026-08-26 13:24:30] trainer - INFO - Epoch 9/50 (142.1s) | LR: 9.22e-04 | Train Loss: 0.3607 Acc: 99.7% | Val Loss: 0.3509 Acc: 100.0%
+[2026-08-26 13:26:54] trainer - INFO - Epoch 10/50 (144.2s) | LR: 9.05e-04 | Train Loss: 0.3658 Acc: 99.4% | Val Loss: 0.3518 Acc: 100.0%
+[2026-08-26 13:29:20] trainer - INFO - Epoch 11/50 (145.8s) | LR: 8.85e-04 | Train Loss: 0.3684 Acc: 99.4% | Val Loss: 0.3541 Acc: 100.0%
+[2026-08-26 13:29:20] trainer - INFO - Early stopping at epoch 11
+[2026-08-26 13:29:20] trainer - INFO - Training complete in 1678.9s
+[2026-08-26 13:29:20] trainer - INFO - Best validation accuracy: 100.00%
+[2026-08-26 13:29:20] trainer - INFO - Evaluating on test set...
+[2026-08-26 13:29:52] trainer - INFO - Test Loss: 0.3543 | Test Accuracy: 100.0%
+[2026-08-26 15:05:27] trainer - INFO - Trainer initialized | Device: cpu | Params: 2.23M | Model: mobilenetv2
+[2026-08-26 15:05:27] trainer - INFO - ============================================================
+[2026-08-26 15:05:27] trainer - INFO - Starting training pipeline
+[2026-08-26 15:05:27] trainer - INFO - ============================================================
+[2026-08-26 15:08:40] trainer - INFO - Trainer initialized | Device: cpu | Params: 2.23M | Model: mobilenetv2
+[2026-08-26 15:08:40] trainer - INFO - ============================================================
+[2026-08-26 15:08:40] trainer - INFO - Starting training pipeline
+[2026-08-26 15:08:40] trainer - INFO - ============================================================
+[2026-08-26 15:10:31] trainer - INFO -   Epoch 1 [50/109] Loss: 0.8080 | Acc: 72.7%
+[2026-08-26 15:12:22] trainer - INFO -   Epoch 1 [100/109] Loss: 0.6349 | Acc: 76.6%
+[2026-08-26 15:13:03] trainer - INFO - Epoch 1/50 (262.8s) | LR: 9.99e-04 | Train Loss: 0.7750 Acc: 76.8% | Val Loss: 0.7021 Acc: 82.4%
+[2026-08-26 15:13:03] trainer - INFO - New best model saved: C:\Users\achsa\OneDrive\Documents\Default Project\checkpoints\best_model.pth (acc=82.38%)
+[2026-08-26 15:15:25] trainer - INFO -   Epoch 2 [50/109] Loss: 0.8029 | Acc: 82.6%
+[2026-08-26 15:18:38] trainer - INFO -   Epoch 2 [100/109] Loss: 0.8356 | Acc: 82.4%
+[2026-08-26 15:19:26] trainer - INFO - Epoch 2/50 (382.7s) | LR: 9.96e-04 | Train Loss: 0.6722 Acc: 82.7% | Val Loss: 0.6457 Acc: 85.6%
+[2026-08-26 15:19:26] trainer - INFO - New best model saved: C:\Users\achsa\OneDrive\Documents\Default Project\checkpoints\best_model.pth (acc=85.58%)
+[2026-08-26 15:21:07] trainer - INFO -   Epoch 3 [50/109] Loss: 0.6979 | Acc: 84.9%
+[2026-08-26 15:23:33] trainer - INFO -   Epoch 3 [100/109] Loss: 0.5611 | Acc: 85.1%
+[2026-08-26 15:24:09] trainer - INFO - Epoch 3/50 (283.1s) | LR: 9.91e-04 | Train Loss: 0.6324 Acc: 85.0% | Val Loss: 0.7444 Acc: 80.5%
+[2026-08-26 15:26:09] trainer - INFO -   Epoch 4 [50/109] Loss: 0.5380 | Acc: 85.1%
+[2026-08-26 15:28:15] trainer - INFO -   Epoch 4 [100/109] Loss: 0.6239 | Acc: 85.1%
+[2026-08-26 15:46:08] trainer - INFO - Epoch 4/50 (1318.4s) | LR: 9.84e-04 | Train Loss: 0.6411 Acc: 84.8% | Val Loss: 0.6596 Acc: 85.3%
+[2026-08-26 15:48:03] trainer - INFO -   Epoch 5 [50/109] Loss: 0.5237 | Acc: 84.7%
+[2026-08-26 15:49:55] trainer - INFO -   Epoch 5 [100/109] Loss: 0.7723 | Acc: 85.1%
+[2026-08-26 15:50:31] trainer - INFO - Epoch 5/50 (263.4s) | LR: 9.76e-04 | Train Loss: 0.6342 Acc: 85.0% | Val Loss: 0.6098 Acc: 86.2%
+[2026-08-26 15:50:31] trainer - INFO - New best model saved: C:\Users\achsa\OneDrive\Documents\Default Project\checkpoints\best_model.pth (acc=86.25%)
+[2026-08-26 15:52:29] trainer - INFO -   Epoch 6 [50/109] Loss: 0.6288 | Acc: 88.1%
+[2026-08-26 15:54:27] trainer - INFO -   Epoch 6 [100/109] Loss: 0.6192 | Acc: 86.5%
+[2026-08-26 15:55:05] trainer - INFO - Epoch 6/50 (273.5s) | LR: 9.65e-04 | Train Loss: 0.6026 Acc: 86.7% | Val Loss: 0.6080 Acc: 86.8%
+[2026-08-26 15:55:05] trainer - INFO - New best model saved: C:\Users\achsa\OneDrive\Documents\Default Project\checkpoints\best_model.pth (acc=86.78%)
+[2026-08-26 15:57:06] trainer - INFO -   Epoch 7 [50/109] Loss: 0.4534 | Acc: 87.4%
+[2026-08-26 15:59:06] trainer - INFO -   Epoch 7 [100/109] Loss: 0.5295 | Acc: 87.7%
+[2026-08-26 15:59:46] trainer - INFO - Epoch 7/50 (281.0s) | LR: 9.52e-04 | Train Loss: 0.5860 Acc: 87.5% | Val Loss: 0.5887 Acc: 88.7%
+[2026-08-26 15:59:46] trainer - INFO - New best model saved: C:\Users\achsa\OneDrive\Documents\Default Project\checkpoints\best_model.pth (acc=88.65%)
+[2026-08-26 16:01:48] trainer - INFO -   Epoch 8 [50/109] Loss: 0.4929 | Acc: 88.8%
+[2026-08-26 16:03:51] trainer - INFO -   Epoch 8 [100/109] Loss: 0.5118 | Acc: 88.9%
+[2026-08-26 16:04:30] trainer - INFO - Epoch 8/50 (284.6s) | LR: 9.38e-04 | Train Loss: 0.5671 Acc: 89.0% | Val Loss: 0.6258 Acc: 85.4%
+[2026-08-26 16:06:26] trainer - INFO -   Epoch 9 [50/109] Loss: 0.5963 | Acc: 87.4%
+[2026-08-26 16:08:27] trainer - INFO -   Epoch 9 [100/109] Loss: 0.4546 | Acc: 87.8%
+[2026-08-26 16:09:00] trainer - INFO - Epoch 9/50 (269.2s) | LR: 9.22e-04 | Train Loss: 0.5879 Acc: 87.6% | Val Loss: 0.6445 Acc: 85.6%
+[2026-08-26 16:10:37] trainer - INFO -   Epoch 10 [50/109] Loss: 0.5983 | Acc: 87.8%
+[2026-08-26 16:12:18] trainer - INFO -   Epoch 10 [100/109] Loss: 0.4663 | Acc: 87.7%
+[2026-08-26 16:12:50] trainer - INFO - Epoch 10/50 (230.4s) | LR: 9.05e-04 | Train Loss: 0.5826 Acc: 87.9% | Val Loss: 0.6145 Acc: 85.6%
+[2026-08-26 16:14:50] trainer - INFO -   Epoch 11 [50/109] Loss: 0.7291 | Acc: 89.3%
+[2026-08-26 16:17:25] trainer - INFO -   Epoch 11 [100/109] Loss: 0.5118 | Acc: 89.5%
+[2026-08-26 16:18:08] trainer - INFO - Epoch 11/50 (318.0s) | LR: 8.85e-04 | Train Loss: 0.5566 Acc: 89.6% | Val Loss: 0.6039 Acc: 87.2%
+[2026-08-26 16:20:31] trainer - INFO -   Epoch 12 [50/109] Loss: 0.6450 | Acc: 88.8%
+[2026-08-26 16:22:47] trainer - INFO -   Epoch 12 [100/109] Loss: 0.5230 | Acc: 89.6%
+[2026-08-26 16:23:29] trainer - INFO - Epoch 12/50 (321.5s) | LR: 8.65e-04 | Train Loss: 0.5496 Acc: 89.6% | Val Loss: 0.5901 Acc: 88.3%
+[2026-08-26 16:25:46] trainer - INFO -   Epoch 13 [50/109] Loss: 0.4597 | Acc: 89.9%
+[2026-08-26 16:28:05] trainer - INFO -   Epoch 13 [100/109] Loss: 0.5572 | Acc: 89.8%
+[2026-08-26 16:28:49] trainer - INFO - Epoch 13/50 (319.9s) | LR: 8.42e-04 | Train Loss: 0.5468 Acc: 89.7% | Val Loss: 0.6022 Acc: 88.3%
+[2026-08-26 16:31:13] trainer - INFO -   Epoch 14 [50/109] Loss: 0.5182 | Acc: 89.4%
+[2026-08-26 16:33:04] trainer - INFO -   Epoch 14 [100/109] Loss: 0.4706 | Acc: 89.7%
+[2026-08-26 16:33:38] trainer - INFO - Epoch 14/50 (288.4s) | LR: 8.19e-04 | Train Loss: 0.5467 Acc: 89.5% | Val Loss: 0.5793 Acc: 88.3%
+[2026-08-26 16:35:25] trainer - INFO -   Epoch 15 [50/109] Loss: 0.5589 | Acc: 89.6%
+[2026-08-26 16:37:45] trainer - INFO -   Epoch 15 [100/109] Loss: 0.4193 | Acc: 89.7%
+[2026-08-26 16:38:37] trainer - INFO - Epoch 15/50 (299.2s) | LR: 7.94e-04 | Train Loss: 0.5431 Acc: 89.7% | Val Loss: 0.6137 Acc: 86.8%
+[2026-08-26 16:41:20] trainer - INFO -   Epoch 16 [50/109] Loss: 0.6028 | Acc: 90.1%
+[2026-08-26 16:44:18] trainer - INFO -   Epoch 16 [100/109] Loss: 0.5393 | Acc: 90.4%
+[2026-08-26 16:45:26] trainer - INFO - Epoch 16/50 (408.6s) | LR: 7.68e-04 | Train Loss: 0.5335 Acc: 90.5% | Val Loss: 0.5987 Acc: 88.4%
+[2026-08-26 16:49:25] trainer - INFO -   Epoch 17 [50/109] Loss: 0.4813 | Acc: 91.5%
+[2026-08-26 16:52:16] trainer - INFO -   Epoch 17 [100/109] Loss: 0.4865 | Acc: 91.2%
+[2026-08-26 16:53:08] trainer - INFO - Epoch 17/50 (462.9s) | LR: 7.41e-04 | Train Loss: 0.5193 Acc: 91.3% | Val Loss: 0.5954 Acc: 88.8%
+[2026-08-26 16:53:09] trainer - INFO - New best model saved: C:\Users\achsa\OneDrive\Documents\Default Project\checkpoints\best_model.pth (acc=88.79%)
+[2026-08-26 16:55:56] trainer - INFO -   Epoch 18 [50/109] Loss: 0.4445 | Acc: 91.3%
+[2026-08-26 16:58:40] trainer - INFO -   Epoch 18 [100/109] Loss: 0.5339 | Acc: 91.3%
+[2026-08-26 16:59:47] trainer - INFO - Epoch 18/50 (398.1s) | LR: 7.13e-04 | Train Loss: 0.5177 Acc: 91.3% | Val Loss: 0.5888 Acc: 89.1%
+[2026-08-26 16:59:47] trainer - INFO - New best model saved: C:\Users\achsa\OneDrive\Documents\Default Project\checkpoints\best_model.pth (acc=89.05%)
+[2026-08-26 17:03:43] trainer - INFO -   Epoch 19 [50/109] Loss: 0.5144 | Acc: 92.1%
+[2026-08-26 17:07:36] trainer - INFO -   Epoch 19 [100/109] Loss: 0.3962 | Acc: 92.2%
+[2026-08-26 17:08:34] trainer - INFO - Epoch 19/50 (527.0s) | LR: 6.84e-04 | Train Loss: 0.5089 Acc: 92.1% | Val Loss: 0.5961 Acc: 87.7%
+[2026-08-26 17:11:08] trainer - INFO -   Epoch 20 [50/109] Loss: 0.4831 | Acc: 91.6%
+[2026-08-26 17:14:00] trainer - INFO -   Epoch 20 [100/109] Loss: 0.6076 | Acc: 91.2%
+[2026-08-26 17:15:12] trainer - INFO - Epoch 20/50 (397.9s) | LR: 6.55e-04 | Train Loss: 0.5162 Acc: 91.5% | Val Loss: 0.6465 Acc: 85.8%
+[2026-08-26 17:23:30] trainer - INFO - Trainer initialized | Device: cpu | Params: 2.23M | Model: mobilenetv2
+[2026-08-26 17:23:30] trainer - INFO - ============================================================
+[2026-08-26 17:23:30] trainer - INFO - Starting training pipeline
+[2026-08-26 17:23:30] trainer - INFO - ============================================================
+[2026-08-26 17:25:49] trainer - INFO -   Epoch 1 [50/109] Loss: 0.7936 | Acc: 73.0%
+[2026-08-26 17:28:23] trainer - INFO -   Epoch 1 [100/109] Loss: 0.8528 | Acc: 76.6%
+[2026-08-26 17:29:10] trainer - INFO - Epoch 1/50 (340.6s) | LR: 9.99e-04 | Train Loss: 0.7863 Acc: 76.8% | Val Loss: 0.8863 Acc: 69.7%
+[2026-08-26 17:29:11] trainer - INFO - New best model saved: C:\Users\achsa\OneDrive\Documents\Default Project\checkpoints\best_model.pth (acc=69.69%)
+[2026-08-26 17:31:38] trainer - INFO -   Epoch 2 [50/109] Loss: 0.5479 | Acc: 83.4%
+[2026-08-26 17:34:02] trainer - INFO -   Epoch 2 [100/109] Loss: 0.5854 | Acc: 83.3%
+[2026-08-26 17:34:48] trainer - INFO - Epoch 2/50 (337.0s) | LR: 9.96e-04 | Train Loss: 0.6690 Acc: 83.4% | Val Loss: 0.6750 Acc: 84.1%
+[2026-08-26 17:34:48] trainer - INFO - New best model saved: C:\Users\achsa\OneDrive\Documents\Default Project\checkpoints\best_model.pth (acc=84.11%)
+[2026-08-26 17:37:26] trainer - INFO -   Epoch 3 [50/109] Loss: 0.8023 | Acc: 82.6%
+[2026-08-26 17:39:47] trainer - INFO -   Epoch 3 [100/109] Loss: 0.5221 | Acc: 84.7%
+[2026-08-26 17:40:29] trainer - INFO - Epoch 3/50 (340.8s) | LR: 9.91e-04 | Train Loss: 0.6447 Acc: 84.8% | Val Loss: 0.6124 Acc: 86.4%
+[2026-08-26 17:40:29] trainer - INFO - New best model saved: C:\Users\achsa\OneDrive\Documents\Default Project\checkpoints\best_model.pth (acc=86.38%)
+[2026-08-26 17:42:40] trainer - INFO -   Epoch 4 [50/109] Loss: 0.5086 | Acc: 86.2%
+[2026-08-26 17:44:48] trainer - INFO -   Epoch 4 [100/109] Loss: 0.6528 | Acc: 86.1%
+[2026-08-26 17:45:29] trainer - INFO - Epoch 4/50 (300.2s) | LR: 9.84e-04 | Train Loss: 0.6136 Acc: 86.3% | Val Loss: 0.6316 Acc: 85.6%
+[2026-08-26 17:47:39] trainer - INFO -   Epoch 5 [50/109] Loss: 0.4806 | Acc: 86.9%
+[2026-08-26 17:50:18] trainer - INFO -   Epoch 5 [100/109] Loss: 0.6749 | Acc: 86.7%
+[2026-08-26 17:51:03] trainer - INFO - Epoch 5/50 (334.2s) | LR: 9.76e-04 | Train Loss: 0.5957 Acc: 87.0% | Val Loss: 0.6418 Acc: 86.6%
+[2026-08-26 17:51:04] trainer - INFO - New best model saved: C:\Users\achsa\OneDrive\Documents\Default Project\checkpoints\best_model.pth (acc=86.65%)
+[2026-08-26 17:53:37] trainer - INFO -   Epoch 6 [50/109] Loss: 0.6372 | Acc: 86.4%
+[2026-08-26 17:53:59] trainer - INFO - Trainer initialized | Device: cpu | Params: 2.23M | Model: mobilenetv2
+[2026-08-26 17:53:59] trainer - INFO - ============================================================
+[2026-08-26 17:53:59] trainer - INFO - Starting training pipeline
+[2026-08-26 17:53:59] trainer - INFO - ============================================================
+[2026-08-26 17:57:07] trainer - INFO -   Epoch 6 [100/109] Loss: 0.5804 | Acc: 86.8%
+[2026-08-26 17:57:55] trainer - INFO - Epoch 6/50 (411.2s) | LR: 9.65e-04 | Train Loss: 0.6105 Acc: 86.7% | Val Loss: 0.6190 Acc: 86.8%
+[2026-08-26 17:57:55] trainer - INFO - New best model saved: C:\Users\achsa\OneDrive\Documents\Default Project\checkpoints\best_model.pth (acc=86.78%)

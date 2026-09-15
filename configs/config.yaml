@@ -1,0 +1,113 @@
+# ============================================================
+# Drone Spray Control - Main Configuration
+# ============================================================
+
+project:
+  name: "SpinachPestDrone"
+  version: "1.0.0"
+
+# ----- Paths -----
+paths:
+  raw_data: "data/raw"
+  processed_data: "data/processed"
+  samples: "data/samples"
+  checkpoints: "checkpoints"
+  outputs: "outputs"
+  logs: "logs"
+
+# ----- Classes -----
+classes:
+  names:
+    - "healthy"
+    - "mild"
+    - "moderate"
+    - "severe"
+  num_classes: 4
+
+# ----- Model -----
+model:
+  architecture: "mobilenetv3small"
+  pretrained: true
+  input_size: [3, 96, 96]
+  dropout: 0.3
+
+# ----- Training -----
+training:
+  batch_size: 32
+  epochs: 50
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  scheduler: "cosine"
+  early_stopping_patience: 10
+  train_split: 0.7
+  val_split: 0.15
+  test_split: 0.15
+  num_workers: 0
+  mixed_precision: true
+
+# ----- Augmentation -----
+augmentation:
+  horizontal_flip_prob: 0.5
+  vertical_flip_prob: 0.3
+  rotation_limit: 30
+  brightness_limit: 0.2
+  contrast_limit: 0.2
+  blur_limit: 3
+  noise_var_limit: [0.002, 0.006]
+
+# ----- Inference -----
+inference:
+  confidence_threshold: 0.65
+  model_path: "checkpoints/best_model.pth"
+  device: "auto"
+  half_precision: true
+  warmup_runs: 3
+
+# ----- Spray Control -----
+spray:
+  healthy:
+    action: "no_spray"
+    duration_sec: 0
+    flow_rate_lpm: 0
+  mild:
+    action: "low_spray"
+    duration_sec: 2
+    flow_rate_lpm: 0.5
+  moderate:
+    action: "medium_spray"
+    duration_sec: 5
+    flow_rate_lpm: 1.0
+  severe:
+    action: "high_spray"
+    duration_sec: 10
+    flow_rate_lpm: 2.0
+  cooldown_sec: 1.0
+  min_altitude_m: 2.0
+  max_altitude_m: 5.0
+  spray_altitude_m: 3.0
+
+# ----- Drone -----
+drone:
+  connection_string: "udp:127.0.0.1:14550"
+  baud_rate: 57600
+  takeoff_altitude: 5.0
+  ground_speed: 3.0
+  max_flight_time_min: 20
+  low_battery_warning_pct: 30
+  geofence_radius_m: 100
+
+# ----- Camera -----
+camera:
+  source: 0
+  width: 1280
+  height: 720
+  fps: 30
+  capture_interval_sec: 1.0
+  save_frames: false
+
+# ----- Logging -----
+logging:
+  level: "INFO"
+  save_predictions: true
+  log_dir: "logs"
+  tensorboard: true
