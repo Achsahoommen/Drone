@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\achsa\OneDrive\Documents\Default Project\train_cv.py", line 317, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\achsa\OneDrive\Documents\Default Project\train_cv.py", line 310, in main
+    evaluate_ensemble(states, test_s, test_l, args)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\achsa\OneDrive\Documents\Default Project\train_cv.py", line 228, in evaluate_ensemble
+    probs = torch.stack([F_softmax(net(images)) for net in nets]).mean(0)
+                         ~~~~~~~~~^^^^^^^^^^^^^
+TypeError: F_softmax() missing 1 required positional argument: 'images'

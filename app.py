@@ -4,7 +4,6 @@ import base64
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from typing import Optional
 from torchvision import transforms
 from PIL import Image
 from flask import Flask, render_template, request, jsonify
@@ -13,7 +12,8 @@ from pathlib import Path
 app = Flask(__name__)
 
 ROOT = Path(__file__).resolve().parent
-MODEL_PATH = ROOT / "checkpoints" / "best_model.pth"
+CHECKPOINT_DIR = ROOT / "checkpoints"
+MODEL_PATH = CHECKPOINT_DIR / "best_model.pth"
 CLASSES = ["mild", "moderate", "severe", "healthy"]
 NUM_CLASSES = 4
 IMG_SIZE = 224
@@ -62,7 +62,7 @@ SPRAY_INFO = {
     },
 }
 
-model: Optional[nn.Module] = None
+models_list: list[nn.Module] = []
 transform = transforms.Compose([
     transforms.Resize((IMG_SIZE, IMG_SIZE)),
     transforms.ToTensor(),
@@ -70,50 +70,58 @@ transform = transforms.Compose([
 ])
 
 
-def load_model() -> nn.Module:
-    global model, CLASSES, NUM_CLASSES
-    if model is not None:
-        return model
+def load_models() -> list[nn.Module]:
+    global models_list, CLASSES, NUM_CLASSES
+    if models_list:
+        return models_list
 
-    # Build the SAME architecture used by train.py so the checkpoint loads.
     from torchvision.models import mobilenet_v2
 
-    net: nn.Module = mobilenet_v2(weights=None)
-    net.classifier = nn.Sequential(
-        nn.Dropout(0.4),
-        nn.Linear(net.last_channel, NUM_CLASSES),
-    )
-    model = net
+    def build():
+        net: nn.Module = mobilenet_v2(weights=None)
+        net.classifier = nn.Sequential(
+            nn.Dropout(0.4),
+            nn.Linear(net.last_channel, NUM_CLASSES),
+        )
+        return net
 
-    if MODEL_PATH.exists():
-        checkpoint = torch.load(str(MODEL_PATH), map_location=DEVICE, weights_only=False)
+    # Prefer the 5-fold CV ensemble; fall back to a single best_model.pth.
+    fold_paths = sorted(CHECKPOINT_DIR.glob("fold_*.pth"))
+    paths = fold_paths if fold_paths else ([MODEL_PATH] if MODEL_PATH.exists() else [])
+
+    for path in paths:
+        checkpoint = torch.load(str(path), map_location=DEVICE, weights_only=False)
         state_dict = checkpoint.get("model_state_dict", checkpoint)
-        model.load_state_dict(state_dict)
-        print(f"Model loaded from {MODEL_PATH}")
-
+        net = build()
+        net.load_state_dict(state_dict)
+        net.to(DEVICE)
+        net.eval()
+        models_list.append(net)
         names = checkpoint.get("class_names")
         if names:
             CLASSES = list(names)
             NUM_CLASSES = len(names)
-            print(f"Model classes: {CLASSES}")
-    else:
-        print(f"WARNING: No model found at {MODEL_PATH}")
+        val_acc = checkpoint.get("val_acc")
+        acc_txt = f" (val {val_acc:.1f}%)" if isinstance(val_acc, float) else ""
+        print(f"Loaded {path.name}{acc_txt}")
 
-    model.to(DEVICE)
-    model.eval()
-    return model
+    if models_list:
+        print(f"Ensemble size: {len(models_list)} model(s) | classes: {CLASSES}")
+    else:
+        print(f"WARNING: No model found at {MODEL_PATH} or {CHECKPOINT_DIR}/fold_*.pth")
+    return models_list
 
 
 def predict(image_bytes):
-    net = load_model()
+    nets = load_models()
     img = Image.open(io.BytesIO(image_bytes)).convert("RGB")
     tensor = transform(img)
     assert isinstance(tensor, torch.Tensor)
     tensor = tensor.unsqueeze(0).to(DEVICE)
 
     with torch.no_grad():
-        outputs: torch.Tensor = net(tensor)
-        probs: torch.Tensor = F.softmax(outputs, dim=1)
+        # Softmax-average across ensemble members (probability-level fusion).
+        probs = torch.stack([F.softmax(net(tensor), dim=1) for net in nets]).mean(0)
         confidence, predicted = probs.max(1)
 
     predicted_class = CLASSES[int(predicted.item())]
@@ -170,7 +178,7 @@ def predict_base64():
 
 
 if __name__ == "__main__":
-    load_model()
+    load_models()
     print("\nStarting Spinach Health Detector...")
     print("Open http://localhost:5000 in your browser\n")
     app.run(debug=True, host="0.0.0.0", port=5000)

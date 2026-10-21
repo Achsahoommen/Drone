@@ -1,0 +1,123 @@
+Device: cpu
+Data:   C:\Users\achsa\OneDrive\Documents\Default Project\data\raw
+Total images: 2998 | counts: {'healthy': np.int64(1399), 'mild': np.int64(795), 'moderate': np.int64(592), 'severe': np.int64(212)}
+Held-out test set: 300 images (10%)
+
+============================================================
+  FOLD 1/5  |  train 2158 | val 540
+============================================================
+
+Phase 1: classifier only (5 epochs)
+  [F1] Epoch 1/5 | Train 1.2761 42.0% | Val 1.0748 57.8% | 71s *** BEST ***
+  [F1] Epoch 2/5 | Train 1.2017 47.6% | Val 1.0305 60.0% | 72s *** BEST ***
+  [F1] Epoch 3/5 | Train 1.2064 49.0% | Val 1.0186 60.7% | 71s *** BEST ***
+  [F1] Epoch 4/5 | Train 1.1858 48.7% | Val 1.0245 60.9% | 77s *** BEST ***
+  [F1] Epoch 5/5 | Train 1.1842 49.9% | Val 1.0035 61.5% | 70s *** BEST ***
+Phase 1 done. Best val: 61.5%
+
+Phase 2: fine-tune full model (7 epochs)
+  [F1] Epoch 1/7 | Train 1.1605 51.7% | Val 0.9897 62.2% | 166s *** BEST ***
+  [F1] Epoch 2/7 | Train 1.0917 56.1% | Val 0.9358 64.6% | 177s *** BEST ***
+  [F1] Epoch 3/7 | Train 1.0725 55.4% | Val 0.9317 65.4% | 168s *** BEST ***
+  [F1] Epoch 4/7 | Train 1.0401 60.2% | Val 0.9372 66.5% | 177s *** BEST ***
+  [F1] Epoch 5/7 | Train 1.0212 58.8% | Val 0.9147 65.0% | 170s
+  [F1] Epoch 6/7 | Train 0.9896 62.4% | Val 0.9059 66.7% | 178s *** BEST ***
+  [F1] Epoch 7/7 | Train 0.9993 62.7% | Val 0.9018 66.5% | 177s
+Fold 1 final val accuracy: 66.67%
+
+============================================================
+  FOLD 2/5  |  train 2158 | val 540
+============================================================
+
+Phase 1: classifier only (5 epochs)
+  [F2] Epoch 1/5 | Train 1.2552 44.2% | Val 1.1009 55.4% | 81s *** BEST ***
+  [F2] Epoch 2/5 | Train 1.2205 47.1% | Val 1.0393 62.2% | 79s *** BEST ***
+  [F2] Epoch 3/5 | Train 1.2079 47.7% | Val 1.0378 60.4% | 77s
+  [F2] Epoch 4/5 | Train 1.2040 46.5% | Val 1.0209 60.0% | 73s
+  [F2] Epoch 5/5 | Train 1.1845 49.1% | Val 1.0145 62.2% | 80s
+Phase 1 done. Best val: 62.2%
+
+Phase 2: fine-tune full model (7 epochs)
+  [F2] Epoch 1/7 | Train 1.1727 50.3% | Val 0.9753 64.4% | 181s *** BEST ***
+  [F2] Epoch 2/7 | Train 1.1041 55.1% | Val 0.9648 64.6% | 183s *** BEST ***
+  [F2] Epoch 3/7 | Train 1.0701 55.4% | Val 0.9534 63.3% | 170s
+  [F2] Epoch 4/7 | Train 1.0519 58.7% | Val 0.9505 65.4% | 167s *** BEST ***
+  [F2] Epoch 5/7 | Train 1.0132 60.9% | Val 0.9250 66.3% | 172s *** BEST ***
+  [F2] Epoch 6/7 | Train 0.9933 61.7% | Val 0.9309 64.6% | 166s
+  [F2] Epoch 7/7 | Train 1.0045 61.3% | Val 0.9184 67.4% | 188s *** BEST ***
+Fold 2 final val accuracy: 67.41%
+
+============================================================
+  FOLD 3/5  |  train 2158 | val 540
+============================================================
+
+Phase 1: classifier only (5 epochs)
+  [F3] Epoch 1/5 | Train 1.2613 42.1% | Val 1.0639 57.2% | 82s *** BEST ***
+  [F3] Epoch 2/5 | Train 1.2466 45.8% | Val 1.0463 60.7% | 78s *** BEST ***
+  [F3] Epoch 3/5 | Train 1.2231 47.6% | Val 1.0795 58.7% | 74s
+  [F3] Epoch 4/5 | Train 1.1810 48.8% | Val 1.0508 59.6% | 76s
+  [F3] Epoch 5/5 | Train 1.1624 52.8% | Val 1.0350 60.0% | 75s
+Phase 1 done. Best val: 60.7%
+
+Phase 2: fine-tune full model (7 epochs)
+  [F3] Epoch 1/7 | Train 1.1870 48.6% | Val 1.0085 62.4% | 171s *** BEST ***
+  [F3] Epoch 2/7 | Train 1.1022 54.9% | Val 0.9771 64.4% | 172s *** BEST ***
+  [F3] Epoch 3/7 | Train 1.0698 57.6% | Val 0.9571 67.4% | 174s *** BEST ***
+  [F3] Epoch 4/7 | Train 1.0514 58.1% | Val 0.9493 67.0% | 172s
+  [F3] Epoch 5/7 | Train 0.9963 61.2% | Val 0.9505 68.3% | 172s *** BEST ***
+  [F3] Epoch 6/7 | Train 0.9998 61.6% | Val 0.9403 68.3% | 163s
+  [F3] Epoch 7/7 | Train 0.9897 62.4% | Val 0.9365 68.5% | 171s *** BEST ***
+Fold 3 final val accuracy: 68.52%
+
+============================================================
+  FOLD 4/5  |  train 2159 | val 539
+============================================================
+
+Phase 1: classifier only (5 epochs)
+  [F4] Epoch 1/5 | Train 1.2718 42.7% | Val 1.1118 54.5% | 347s *** BEST ***
+  [F4] Epoch 2/5 | Train 1.2056 48.8% | Val 1.0476 57.9% | 336s *** BEST ***
+  [F4] Epoch 3/5 | Train 1.1936 50.0% | Val 1.0450 59.0% | 367s *** BEST ***
+  [F4] Epoch 4/5 | Train 1.2064 47.8% | Val 1.0291 59.6% | 373s *** BEST ***
+  [F4] Epoch 5/5 | Train 1.1471 52.8% | Val 1.0116 60.9% | 348s *** BEST ***
+Phase 1 done. Best val: 60.9%
+
+Phase 2: fine-tune full model (7 epochs)
+  [F4] Epoch 1/7 | Train 1.1404 50.8% | Val 0.9877 62.5% | 910s *** BEST ***
+  [F4] Epoch 2/7 | Train 1.0839 55.9% | Val 0.9933 62.3% | 856s
+  [F4] Epoch 3/7 | Train 1.0609 57.1% | Val 0.9409 63.8% | 842s *** BEST ***
+  [F4] Epoch 4/7 | Train 1.0438 58.5% | Val 0.9491 64.2% | 428s *** BEST ***
+  [F4] Epoch 5/7 | Train 1.0063 63.2% | Val 0.9443 64.6% | 192s *** BEST ***
+  [F4] Epoch 6/7 | Train 1.0048 61.8% | Val 0.9415 64.7% | 205s *** BEST ***
+  [F4] Epoch 7/7 | Train 1.0113 61.6% | Val 0.9366 66.2% | 196s *** BEST ***
+Fold 4 final val accuracy: 66.23%
+
+============================================================
+  FOLD 5/5  |  train 2159 | val 539
+============================================================
+
+Phase 1: classifier only (5 epochs)
+  [F5] Epoch 1/5 | Train 1.2772 41.0% | Val 1.0214 60.3% | 79s *** BEST ***
+  [F5] Epoch 2/5 | Train 1.2098 48.4% | Val 1.0466 59.2% | 76s
+  [F5] Epoch 3/5 | Train 1.2037 47.8% | Val 1.0529 56.4% | 86s
+  [F5] Epoch 4/5 | Train 1.2024 48.8% | Val 1.0476 57.5% | 92s
+  [F5] Epoch 5/5 | Train 1.1347 53.1% | Val 1.0106 58.3% | 78s
+Phase 1 done. Best val: 60.3%
+
+Phase 2: fine-tune full model (7 epochs)
+  [F5] Epoch 1/7 | Train 1.1681 50.3% | Val 0.9923 61.4% | 249s *** BEST ***
+  [F5] Epoch 2/7 | Train 1.0963 55.1% | Val 0.9670 64.9% | 421s *** BEST ***
+  [F5] Epoch 3/7 | Train 1.0573 58.5% | Val 0.9384 64.4% | 480s
+  [F5] Epoch 4/7 | Train 1.0545 58.3% | Val 0.9225 64.6% | 176s
+  [F5] Epoch 5/7 | Train 1.0265 59.9% | Val 0.9363 65.5% | 167s *** BEST ***
+  [F5] Epoch 6/7 | Train 1.0216 60.9% | Val 0.9260 65.1% | 169s
+  [F5] Epoch 7/7 | Train 1.0258 61.0% | Val 0.9227 65.9% | 191s *** BEST ***
+Fold 5 final val accuracy: 65.86%
+
+============================================================
+CV val accuracy per fold: ['66.67%', '67.41%', '68.52%', '66.23%', '65.86%']
+Mean: 66.94%  |  Std: 0.94%
+Total training time: 208.3 min
+
+============================================================
+  ENSEMBLE EVALUATION ON HELD-OUT TEST SET
+============================================================

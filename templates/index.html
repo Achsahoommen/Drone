@@ -305,6 +305,9 @@
                 <div class="recommendation" id="recommendation">
                     <p id="recText"></p>
                 </div>
+                <div class="btn-row" style="margin-top:20px">
+                    <button class="btn btn-primary" id="backBtn">&#8592; Analyze Another Image</button>
+                </div>
             </div>
         </div>
     </div>
@@ -491,6 +494,18 @@
             hideAll();
             uploadZone.style.display = 'block';
             cameraBtn.style.display = 'inline-flex';
+        });
+
+        document.getElementById('backBtn').addEventListener('click', () => {
+            selectedFile = null;
+            fileInput.value = '';
+            previewImg.src = '';
+            document.getElementById('probBars').innerHTML = '';
+            document.getElementById('sprayGrid').innerHTML = '';
+            hideAll();
+            uploadZone.style.display = 'block';
+            cameraBtn.style.display = 'inline-flex';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
         function hideAll() {

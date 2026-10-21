@@ -1,0 +1,18 @@
+Ensemble test accuracy: 69.67%
+
+              precision    recall  f1-score   support
+
+     healthy     0.7651    0.9071    0.8301       140
+        mild     0.5938    0.4750    0.5278        80
+    moderate     0.6667    0.5763    0.6182        59
+      severe     0.5263    0.4762    0.5000        21
+
+    accuracy                         0.6967       300
+   macro avg     0.6379    0.6087    0.6190       300
+weighted avg     0.6833    0.6967    0.6847       300
+
+Confusion Matrix:
+[[127  10   3   0]
+ [ 33  38   8   1]
+ [  5  12  34   8]
+ [  1   4   6  10]]

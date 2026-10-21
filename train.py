@@ -126,7 +126,7 @@ def train():
     print(f"  Classes: {dict(zip(CLASSES, train_ds.class_counts))}")
 
     weights = 1.0 / (train_ds.class_counts + 1e-6)
-    sample_weights = weights[train_ds.labels]
+    sample_weights = [float(w) for w in weights[train_ds.labels]]
     sampler = WeightedRandomSampler(sample_weights, len(train_ds), replacement=True)
 
     train_loader = DataLoader(train_ds, batch_size=BATCH_SIZE, sampler=sampler, num_workers=0)
@@ -136,7 +136,7 @@ def train():
     model = build_model(frozen=True)
     criterion = nn.CrossEntropyLoss(label_smoothing=0.1)
     best_acc = 0.0
-    best_model = None
+    best_model: dict[str, torch.Tensor] = {}
     no_improve = 0
 
     print(f"\nPhase 1: Train classifier only ({UNFREEZE_EPOCH} epochs)")
@@ -287,7 +287,8 @@ def train():
             all_preds.extend(preds)
             all_labels.extend(labels.numpy())
 
-    print("\n" + classification_report(all_labels, all_preds, target_names=CLASSES, digits=4))
+    report = classification_report(all_labels, all_preds, target_names=CLASSES, digits=4)
+    print(f"\n{report}")
     print("Confusion Matrix:")
     print(confusion_matrix(all_labels, all_preds))
 
